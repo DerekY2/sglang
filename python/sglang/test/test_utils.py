@@ -116,6 +116,7 @@ DEFAULT_DRAFT_MODEL_STANDALONE = "meta-llama/Llama-3.2-1B-Instruct"
 
 # N-gram speculative decoding models
 DEFAULT_TARGET_MODEL_NGRAM = "Qwen/Qwen2.5-Coder-7B-Instruct"
+DEFAULT_TARGET_MODEL_NGRAM_HYBRID = "Qwen/Qwen3.5-4B"
 
 # Other use cases
 DEFAULT_AUTOROUND_MODEL_NAME_FOR_TEST = (

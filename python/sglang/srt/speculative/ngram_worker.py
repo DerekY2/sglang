@@ -45,6 +45,7 @@ class NGRAMWorker:
             server_args.speculative_ngram_max_match_window_size
         )
 
+        self.topk: int = server_args.speculative_eagle_topk
         self.max_batch_size = target_worker.max_running_requests
         self.device = f"cuda:{gpu_id}" if gpu_id >= 0 else "cuda"
 
@@ -196,6 +197,7 @@ class NGRAMWorker:
             retrive_next_token,
             retrive_next_sibling,
             self.draft_token_num,
+            topk=self.topk,
         )
         batch.spec_info.prepare_for_verify(batch, self.page_size)
 

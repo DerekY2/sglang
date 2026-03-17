@@ -128,6 +128,12 @@ class SpecInput(ABC):
             SpecInputType.NGRAM_VERIFY,
         }
 
+    @property
+    def has_tree_topology(self) -> bool:
+        """Whether the verify tree has branching (topk > 1) and needs
+        retrieve_next_token / retrieve_next_sibling for custom-mask handling."""
+        return getattr(self, "topk", 1) > 1
+
     @abstractmethod
     def get_spec_adjust_token_coefficient(self) -> Tuple[int, int]:
         pass

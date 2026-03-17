@@ -58,6 +58,7 @@ class NgramVerifyInput(SpecInput):
         retrive_next_token: torch.Tensor,
         retrive_next_sibling: torch.Tensor,
         draft_token_num: int,
+        topk: int = 1,
         grammar: BaseGrammarObject = None,
     ):
         super().__init__(SpecInputType.NGRAM_VERIFY)
@@ -68,6 +69,7 @@ class NgramVerifyInput(SpecInput):
         self.retrive_next_token = retrive_next_token
         self.retrive_next_sibling = retrive_next_sibling
         self.draft_token_num = draft_token_num
+        self.topk = topk
         self.device = self.custom_mask.device
         self.grammar = grammar
 
